@@ -6,12 +6,13 @@
 
 :root {
   --main-bg: #f6f6f6;
-  --modal-bg: #d4d4d6;
-  --accent: #daa520;
-  --link: #de7826;
+  --accent: #feb300;
+  --lines: #dedede;
+  --link: #cf1a00;
   --white: #ffffff;
   --black: 0, 0, 0;
   --text-body: rgba(var(--black), 0.8);
+  --modal-bg: var(--white);
 }
 
 html {
@@ -69,8 +70,13 @@ ul li {
 
 a {
   font-size: inherit;
+  color: var(--link);
 }
 
 label {
   display: block;
+}
+
+hr {
+  color: var(--lines);
 }

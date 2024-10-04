@@ -13,6 +13,66 @@
   }
 }
 
+.list-group {
+  box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
+  border-radius: 0.8rem;
+
+  .list-group-item {
+    border: 0.1rem solid transparent;
+    border-bottom-color: var(--lines);
+    cursor: pointer;
+    padding: 1.6rem;
+
+    .img-container {
+      height: 70px;
+      width: 70px;
+      position: relative;
+      overflow: hidden;
+      margin: -1.7rem;
+
+      .img-overlay {
+        width: 0;
+        height: 0;
+        border-left: 5rem solid transparent;
+        border-right: 5rem solid transparent;
+        border-top: 5rem solid var(--white);
+        position: absolute;
+        bottom: -0.8rem;
+        right: -3.3rem;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover {
+      background-color: var(--main-bg);
+
+      .img-overlay {
+        border-top: 5rem solid var(--main-bg);
+      }
+    }
+    &:focus-visible {
+      outline-offset: 0.1rem;
+      outline: 0.2rem dotted rgba(var(--black), 1);
+    }
+    &:active {
+      border: 0.1rem solid var(--accent);
+    }
+
+    &:first-child {
+      .img-fluid {
+        border-top-left-radius: 0.8rem;
+      }
+    }
+  }
+}
+
+.modal-fullscreen .modal-content {
+  border: 1.6rem solid var(--accent);
+  .modal-header {
+    border-bottom: none;
+  }
+}
+
 .owo {
   // animate transition from full window to this
 }

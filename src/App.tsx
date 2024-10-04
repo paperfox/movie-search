@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ListItems from './components/ListItems';
 import Footer from './components/Footer';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 interface MovieData {
   id: number;
@@ -70,7 +71,13 @@ function App() {
         </div>
       </header>
       <main className="container">
-        <div className="list-group">{movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}</div>
+        <div className="row justify-content-center">
+          <div className="col-auto col-lg-10 col-xl-9 align-self-center">
+            <ListGroup defaultActiveKey="#link1">
+              {movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}
+            </ListGroup>
+          </div>
+        </div>
       </main>
       <Footer />
     </>
