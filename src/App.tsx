@@ -61,14 +61,14 @@ function App() {
         <>
           <header className="as-nav">
             <div className="row justify-content-center">
-              <div className="col-md-6">
+              <div className="col-lg-6">
                 <h1 className="page-title">Find the Perfect Movie</h1>
 
-                <div className="row m-4">
+                <div className="row justify-content-center m-4">
                   <div className="col-auto align-self-center">
                     <label htmlFor="input-movie-search">Search for movies:</label>
                   </div>
-                  <div className="col-8">
+                  <div className="col-sm-8">
                     <InputGroup>
                       <Form.Control
                         id="input-movie-search"
@@ -90,9 +90,7 @@ function App() {
           <main className="container">
             <div className="row justify-content-center">
               <div className="col-auto col-lg-10 col-xl-9 align-self-center">
-                <ListGroup className="my-5">
-                  {movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}
-                </ListGroup>
+                <ListGroup>{movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}</ListGroup>
               </div>
             </div>
           </main>

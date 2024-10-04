@@ -86,7 +86,7 @@ function ListItems({ movie }: { movie: movieItem }) {
           {/* <p className="text-center">
             Popularity: {movie.popularity} | Vote Average: {movie.vote_average} | Vote Count: {movie.vote_count}
           </p> */}
-          <div className="text-center mt-5">
+          <div className="text-center mt-5 mb-3">
             <Button variant="primary" onClick={handleShowModal}>
               CLOSE
             </Button>
