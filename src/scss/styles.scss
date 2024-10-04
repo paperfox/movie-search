@@ -1,29 +1,82 @@
 @import './bootstrap-imports';
 @import './core';
+@import './list';
+@import './detail';
 
-%overlay {
-  width: 0;
-  height: 0;
-  border-left: 5rem solid transparent;
-  border-right: 5rem solid transparent;
-  border-top: 5rem solid var(--white);
+%shape-base {
+  height: 50%;
+  background: var(--accent-dark);
   position: absolute;
-  bottom: -0.8rem;
-  right: -3.3rem;
-  transform: rotate(-45deg);
+  top: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+#root main {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
 }
 
 .list-group-item,
-.card {
-  background-color: var(--white);
+.splash-image {
+  z-index: 1;
+}
+
+.landing-content {
+  z-index: 2;
 }
 
 .full-window {
   background-color: var(--accent);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 
-  &,
-  .row.justify-content-center {
-    height: 90vh;
+  .splash-image {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .shape-left-top,
+  .shape-left-bottom {
+    @extend %shape-base;
+    width: 40%;
+    transform: skew(50deg);
+    left: 20rem;
+  }
+
+  .shape-left-bottom {
+    top: auto;
+    bottom: 0;
+    transform: skew(-50deg);
+    background-image: linear-gradient(var(--accent-dark), var(--accent-dark), var(--accent));
+  }
+
+  .shape-right-top,
+  .shape-right-bottom {
+    @extend %shape-base;
+    width: 25%;
+    transform: skew(30deg);
+    right: -6rem;
+  }
+
+  .shape-right-bottom {
+    top: auto;
+    bottom: 0;
+    transform: skew(-30deg);
+    background-image: linear-gradient(var(--accent-dark), var(--accent-dark), var(--accent));
   }
 }
 
@@ -33,90 +86,60 @@ body:has(.full-window) {
 }
 
 .as-nav {
+  background-color: var(--white);
+  box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
+  position: fixed;
+  width: 100%;
+  z-index: $zindex-fixed;
+
   .page-title {
     @include visually-hidden;
   }
-}
 
-.list-group {
-  box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
-  border-radius: 0.8rem;
-
-  .list-group-item {
-    border: 0.1rem solid transparent;
-    border-bottom-color: var(--lines);
-    cursor: pointer;
-    padding: 1.6rem;
-
-    .img-container {
-      height: 70px;
-      width: 70px;
-      position: relative;
-      overflow: hidden;
-      margin: -1.7rem;
-
-      .img-overlay {
-        @extend %overlay;
-      }
-    }
-
-    &:hover,
-    &:focus {
-      background-color: var(--main-bg);
-
-      .img-overlay {
-        border-top: 5rem solid var(--main-bg);
-      }
-    }
-    &:focus-visible {
-      outline-offset: 0.1rem;
-      outline: 0.2rem dotted rgba(var(--black), 1);
-    }
-    &:active {
-      border: 0.1rem solid var(--accent);
-    }
-
-    &:first-child {
-      .img-fluid {
-        border-top-left-radius: 0.8rem;
-      }
-    }
+  & + .container {
+    margin-top: 6.4rem;
   }
 }
 
-.modal-fullscreen .modal-content {
-  border: 1.6rem solid var(--accent);
-  .modal-header {
-    border-bottom: none;
-    z-index: 1;
-    .btn-close {
-      opacity: 1;
-      opacity: 1;
-      height: 2.4rem;
-      width: 2.4rem;
-      background: transparent var(--bs-btn-close-bg) center / 1.6rem auto no-repeat;
-      margin: -1rem -1rem -1rem auto;
-    }
-  }
-  &:after {
-    content: '';
-    @extend %overlay;
-    border-top: 5rem solid var(--accent);
-    position: absolute;
-    top: -0.8rem;
-    right: -3.3rem;
-    transform: rotate(-135deg);
-  }
+.btn.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: rgba(var(--black), 1);
 }
 
-.badge.text-bg-light {
-  border: 0.1rem solid var(--accent);
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.01rem;
-  padding: 0.7rem 1.2rem 0.6rem;
-  margin-right: 0.4rem;
+.form-control {
+  border: 0.2rem solid var(--lines-dark);
+  border-right: none;
 }
+.input-group .btn.btn-primary {
+  border: 0.2rem solid var(--lines-dark);
+  border-left: none;
+}
+
 .owo {
   // animate transition from full window to this
 }
+
+@include media-breakpoint-up(lg) {
+  .full-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .landing-content {
+      margin-bottom: 9rem;
+    }
+  }
+}
+
+// @include media-breakpoint-down(lg) {
+//   .full-window {
+
+//   }
+// }
+
+// @include media-breakpoint-down(sm) {
+//   &.draw-animation-0 { transform: translate(0, 26.5rem); }
+//   &.draw-animation-1 { transform: translate(60%, 26.5rem); }
+//   &.draw-animation-2 { transform: translate(119%, 26.5rem); }
+// }

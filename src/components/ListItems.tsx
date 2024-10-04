@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Button } from 'react-bootstrap';
+import popcorn from '../assets/popcorn.svg';
 
 interface movieItem {
   id: number;
@@ -22,7 +24,8 @@ function ListItems({ movie }: { movie: movieItem }) {
   const date = new Date(movie.release_date + 'T00:00:00').toLocaleDateString();
   const truncate = (input) => (input.length > 140 ? `${input.substring(0, 140)}...` : input);
   const shortOverview = truncate(movie.overview);
-  console.log(shortOverview);
+  const poster = movie.poster_path === null ? popcorn : `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
   const handleShowModal = () => {
     setFullscreen(true);
     setShow(!show);
@@ -35,11 +38,7 @@ function ListItems({ movie }: { movie: movieItem }) {
           <div className="col-3 col-sm-2 col-md-1">
             <div className="img-container">
               <div className="img-overlay"></div>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={`Movie poster for ${movie.title}`}
-                className="img-fluid"
-              />
+              <img src={poster} alt={`Movie poster for ${movie.title}`} className="img-fluid" />
             </div>
           </div>
           <div className="col-9 col-sm-3">
@@ -61,11 +60,7 @@ function ListItems({ movie }: { movie: movieItem }) {
         <Modal.Body>
           <div className="row justify-content-center m-5">
             <div className="col-9 col-sm-6 col-md-5 col-lg-4 col-xl-3 pb-4">
-              <img
-                className="img-fluid pe-3"
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={`Movie poster for ${movie.title}`}
-              />
+              <img className="img-fluid pe-3" src={poster} alt={`Movie poster for ${movie.title}`} />
             </div>
             <div className="col-sm-6 col-lg-6 col-xl-5 mt-4">
               <h2>{movie.title}</h2>
@@ -91,6 +86,11 @@ function ListItems({ movie }: { movie: movieItem }) {
           {/* <p className="text-center">
             Popularity: {movie.popularity} | Vote Average: {movie.vote_average} | Vote Count: {movie.vote_count}
           </p> */}
+          <div className="text-center mt-5">
+            <Button variant="primary" onClick={handleShowModal}>
+              CLOSE
+            </Button>
+          </div>
         </Modal.Body>
       </Modal>
     </>

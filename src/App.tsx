@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import projector from './assets/projector.svg';
 
 interface MovieData {
   id: number;
@@ -56,40 +57,78 @@ function App() {
 
   return (
     <>
-      <header className={movies.length > 0 ? 'as-nav' : 'container-fluid full-window'}>
-        <div className="row justify-content-center">
-          <div className={movies.length > 0 ? 'col align-self-center text-center' : 'col-auto align-self-center'}>
-            <div className="card">
-              <div className="card-body">
+      {movies.length > 0 ? (
+        <>
+          <header className="as-nav">
+            <div className="row justify-content-center">
+              <div className="col-md-6">
                 <h1 className="page-title">Find the Perfect Movie</h1>
-                <label htmlFor="input-movie-search">Search for movies:</label>
+
+                <div className="row m-4">
+                  <div className="col-auto align-self-center">
+                    <label htmlFor="input-movie-search">Search for movies:</label>
+                  </div>
+                  <div className="col-8">
+                    <InputGroup>
+                      <Form.Control
+                        id="input-movie-search"
+                        aria-describedby="btn-movie-search"
+                        value={term}
+                        type="text"
+                        onChange={(e) => setTerm(e.target.value)}
+                      />
+                      <Button variant="primary" id="btn-movie-search">
+                        Search
+                      </Button>
+                    </InputGroup>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <main className="container">
+            <div className="row justify-content-center">
+              <div className="col-auto col-lg-10 col-xl-9 align-self-center">
+                <ListGroup className="my-5">
+                  {movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}
+                </ListGroup>
+              </div>
+            </div>
+          </main>
+        </>
+      ) : (
+        <header className="container-fluid full-window">
+          <div className="row">
+            <div className="col-auto offset-md-1 align-self-center landing-content">
+              <h1 className="page-title">Find the Perfect Movie</h1>
+              <div>
+                <label htmlFor="input-movie-search" className="d-block mb-2">
+                  Search for movies:
+                </label>
                 {/* <input id="input-movie-search" value={term} type="text" onChange={(e) => setTerm(e.target.value)} /> */}
                 <InputGroup className="mb-3">
                   <Form.Control
                     id="input-movie-search"
-                    aria-describedby="basic-addon2"
+                    aria-describedby="btn-movie-search"
                     value={term}
                     type="text"
                     onChange={(e) => setTerm(e.target.value)}
                   />
-                  <Button variant="outline-secondary" id="button-addon2">
-                    Button
+                  <Button variant="primary" id="btn-movie-search">
+                    Search
                   </Button>
                 </InputGroup>
               </div>
             </div>
           </div>
-        </div>
-      </header>
-      <main className="container">
-        <div className="row justify-content-center">
-          <div className="col-auto col-lg-10 col-xl-9 align-self-center">
-            <ListGroup defaultActiveKey="#link1">
-              {movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}
-            </ListGroup>
-          </div>
-        </div>
-      </main>
+          <img src={projector} className="splash-image" alt="Image of a vintage movie projector" />
+          <div className="shape-left-top"></div>
+          <div className="shape-left-bottom"></div>
+          <div className="shape-right-top"></div>
+          <div className="shape-right-bottom"></div>
+        </header>
+      )}
       <Footer />
     </>
   );

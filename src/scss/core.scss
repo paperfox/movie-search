@@ -7,8 +7,10 @@
 :root {
   --main-bg: #f6f6f6;
   --accent: #feb300;
+  --accent-dark: #ff9000;
   --lines: #dedede;
-  --link: #cf1a00;
+  --lines-dark: #4b5c6e;
+  --link: #9b1500;
   --white: #ffffff;
   --black: 0, 0, 0;
   --text-body: rgba(var(--black), 0.8);
@@ -46,7 +48,6 @@ p {
 h1 {
   font-size: 3.4rem;
   margin-bottom: 3rem;
-  padding-top: 8rem;
 }
 
 h2 {
@@ -63,8 +64,7 @@ p,
 h4,
 .btn,
 label,
-input,
-ul li {
+.form-control {
   font-size: 1.6rem;
 }
 
@@ -73,10 +73,18 @@ a {
   color: var(--link);
 }
 
-label {
-  display: block;
-}
-
 hr {
   color: var(--lines);
+}
+
+%overlay {
+  width: 0;
+  height: 0;
+  border-left: 5rem solid transparent;
+  border-right: 5rem solid transparent;
+  border-top: 5rem solid var(--white);
+  position: absolute;
+  bottom: -0.8rem;
+  right: -3.3rem;
+  transform: rotate(-45deg);
 }
