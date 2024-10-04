@@ -1,0 +1,11 @@
+@import './bootstrap-imports';
+@import './core';
+
+.list-group-item,
+.card {
+  background-color: var(--white);
+}
+
+.full-window {
+  height: 90vh;
+}

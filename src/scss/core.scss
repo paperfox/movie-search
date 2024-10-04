@@ -1,0 +1,76 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg: #f6f6f6;
+  --modal-bg: #d4d4d6;
+  --accent: #daa520;
+  --link: #de7826;
+  --white: #ffffff;
+  --black: 0, 0, 0;
+  --text-body: rgba(var(--black), 0.8);
+}
+
+html {
+  font-size: 62.5%;
+  background-color: var(--main-bg);
+}
+
+body {
+  background-color: var(--main-bg);
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  color: rgb(var(--black));
+}
+
+/* Typography */
+h1,
+h2,
+.btn {
+  font-weight: 500;
+}
+
+h3,
+label {
+  font-weight: 700;
+}
+
+p {
+  font-weight: 400;
+  color: var(--text-body);
+}
+
+h1 {
+  font-size: 3.4rem;
+  margin-bottom: 3rem;
+  padding-top: 8rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2.2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+p,
+h4,
+.btn,
+label,
+input,
+ul li {
+  font-size: 1.6rem;
+}
+
+a {
+  font-size: inherit;
+}
+
+label {
+  display: block;
+}
