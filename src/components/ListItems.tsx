@@ -77,6 +77,11 @@ function ListItems({ movie }: { movie: movieItem }) {
               <p>Popularity: {movie.popularity}</p>
               <p>Vote Average: {movie.vote_average}</p>
               <p>Vote Count: {movie.vote_count}</p>
+              <div>
+                <span className="badge rounded-pill text-bg-light">GENRE</span>
+                <span className="badge rounded-pill text-bg-light">GENRE</span>
+                <span className="badge rounded-pill text-bg-light">GENRE</span>
+              </div>
             </div>
           </div>
           {/* "genre_ids": [

@@ -1,15 +1,40 @@
 @import './bootstrap-imports';
 @import './core';
 
+%overlay {
+  width: 0;
+  height: 0;
+  border-left: 5rem solid transparent;
+  border-right: 5rem solid transparent;
+  border-top: 5rem solid var(--white);
+  position: absolute;
+  bottom: -0.8rem;
+  right: -3.3rem;
+  transform: rotate(-45deg);
+}
+
 .list-group-item,
 .card {
   background-color: var(--white);
 }
 
 .full-window {
+  background-color: var(--accent);
+
   &,
   .row.justify-content-center {
     height: 90vh;
+  }
+}
+
+html:has(.full-window),
+body:has(.full-window) {
+  background-color: var(--accent);
+}
+
+.as-nav {
+  .page-title {
+    @include visually-hidden;
   }
 }
 
@@ -31,19 +56,12 @@
       margin: -1.7rem;
 
       .img-overlay {
-        width: 0;
-        height: 0;
-        border-left: 5rem solid transparent;
-        border-right: 5rem solid transparent;
-        border-top: 5rem solid var(--white);
-        position: absolute;
-        bottom: -0.8rem;
-        right: -3.3rem;
-        transform: rotate(-45deg);
+        @extend %overlay;
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--main-bg);
 
       .img-overlay {
@@ -70,9 +88,35 @@
   border: 1.6rem solid var(--accent);
   .modal-header {
     border-bottom: none;
+    z-index: 1;
+    .btn-close {
+      opacity: 1;
+      opacity: 1;
+      height: 2.4rem;
+      width: 2.4rem;
+      background: transparent var(--bs-btn-close-bg) center / 1.6rem auto no-repeat;
+      margin: -1rem -1rem -1rem auto;
+    }
+  }
+  &:after {
+    content: '';
+    @extend %overlay;
+    border-top: 5rem solid var(--accent);
+    position: absolute;
+    top: -0.8rem;
+    right: -3.3rem;
+    transform: rotate(-135deg);
   }
 }
 
+.badge.text-bg-light {
+  border: 0.1rem solid var(--accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01rem;
+  padding: 0.7rem 1.2rem 0.6rem;
+  margin-right: 0.4rem;
+}
 .owo {
   // animate transition from full window to this
 }

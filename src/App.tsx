@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import ListItems from './components/ListItems';
 import Footer from './components/Footer';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 interface MovieData {
   id: number;
@@ -53,18 +56,26 @@ function App() {
 
   return (
     <>
-      <header className={movies.length > 0 ? 'owo' : 'container-fluid full-window'}>
+      <header className={movies.length > 0 ? 'as-nav' : 'container-fluid full-window'}>
         <div className="row justify-content-center">
-          <div
-            className={
-              movies.length > 0 ? 'col align-self-center text-center' : 'col-auto align-self-center text-center'
-            }
-          >
+          <div className={movies.length > 0 ? 'col align-self-center text-center' : 'col-auto align-self-center'}>
             <div className="card">
               <div className="card-body">
-                <h1>Clever title here</h1>
+                <h1 className="page-title">Find the Perfect Movie</h1>
                 <label htmlFor="input-movie-search">Search for movies:</label>
-                <input id="input-movie-search" value={term} type="text" onChange={(e) => setTerm(e.target.value)} />
+                {/* <input id="input-movie-search" value={term} type="text" onChange={(e) => setTerm(e.target.value)} /> */}
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    id="input-movie-search"
+                    aria-describedby="basic-addon2"
+                    value={term}
+                    type="text"
+                    onChange={(e) => setTerm(e.target.value)}
+                  />
+                  <Button variant="outline-secondary" id="button-addon2">
+                    Button
+                  </Button>
+                </InputGroup>
               </div>
             </div>
           </div>
