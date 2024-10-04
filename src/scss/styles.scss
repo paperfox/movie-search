@@ -7,5 +7,12 @@
 }
 
 .full-window {
-  height: 90vh;
+  &,
+  .row.justify-content-center {
+    height: 90vh;
+  }
+}
+
+.owo {
+  // animate transition from full window to this
 }
