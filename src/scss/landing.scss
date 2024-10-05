@@ -73,7 +73,9 @@ body:has(.landing-page) { background-color: var(--accent); }
     left: 0;
     z-index: 1;
     @include media-breakpoint-up(xl) { width: 8%; }
-    @include media-breakpoint-up(xxl) { width: 21%; }
+    @include media-breakpoint-up(xxl) { width: 21.5%; }
+    // covering really large screens
+    @media (min-width: 1920px) { width: 35%; }
   }
 
   // Building the splash image from multiple svg parts for responsive and animation

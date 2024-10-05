@@ -90,11 +90,11 @@ function App() {
               <div
                 className={
                   movies.length === 0
-                    ? "col-sm-4"
+                    ? "col-lg-4"
                     : "col-auto align-self-center"
                 }
               >
-                <label htmlFor="input-movie-search">Search</label>
+                <label htmlFor="input-movie-search">Search by Title</label>
               </div>
               <div
                 className={movies.length === 0 ? "col-sm-9" : "col-11 col-sm-6"}
