@@ -14,11 +14,11 @@ Created using Vite with React and TypeScript.
 
 1. **Clone the repository:**
 
-   ```sh
-   git clone https://github.com/paperfox/movie-search.git
-   cd movie-search
+```bash
+git clone https://github.com/paperfox/movie-search.git
+cd movie-search
 
-   ```
+```
 
 2. **Install Dependencies**
 
