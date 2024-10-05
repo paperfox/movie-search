@@ -1,12 +1,20 @@
 import { useState, useCallback, useEffect } from "react";
-import ListItems from "./components/ListItems";
-import Footer from "./components/Footer";
+import { useDebounce } from "use-debounce";
+import InputGroup from "react-bootstrap/InputGroup";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import projector from "./assets/projector.svg";
-import { useDebounce } from "use-debounce";
+import ListItems from "./components/ListItems";
+import Footer from "./components/Footer";
+import camera from "./assets/camera.svg";
+import light from "./assets/light.svg";
+import largeReel from "./assets/large-reel.svg";
+import smallReel from "./assets/small-reel.svg";
+import stand from "./assets/stand.svg";
+
+// To do:
+// Write Tests
+// deploy somwhere
 
 interface MovieData {
   id: number;
@@ -118,11 +126,14 @@ function App() {
 
         {movies.length === 0 ? (
           <>
-            <img
-              src={projector}
-              className="splash-image"
-              alt="Image of a vintage movie projector"
-            />
+            <div className="splash-image">
+              <img src={largeReel} className="large-reel" alt="A large reel of film at the front of the movie projector" />
+              <img src={smallReel} className="small-reel" alt="A small reel of film at the back of the movie projector" />
+              <img src={camera} className="camera" alt="A vintage movie projector" />
+              <img src={light} className="light" alt="Light shining out of the projector" />
+              <img src={stand} className="stand" alt="A stand for a projector" />
+            </div>
+            <div className="light-extension"></div>
             <div className="shape-left-top"></div>
             <div className="shape-left-bottom"></div>
             <div className="shape-right-top"></div>

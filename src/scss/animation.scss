@@ -43,6 +43,16 @@
   }
 }
 
+// Spin movie reels
+@keyframes reels-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 // Searchbar to Nav Animation
 @keyframes move-search-to-nav {
   0% {
@@ -73,32 +83,26 @@
   100% { margin-top: var(--list-top-margin); }
 }
 
-// Searchbar to nav animation
-.animate-width.search-navigation {
-  animation-name: move-search-to-nav;
-  animation-duration: 3s;
+
+@media (prefers-reduced-motion: no-preference) {
+  // Reel spin animation
+  .small-reel,
+  .large-reel {
+    animation: reels-spin infinite 20s linear;
+  }
+
+  // Searchbar to nav animation
+  .animate-width.search-navigation {
+    animation-name: move-search-to-nav;
+    animation-duration: 3s;
+  }
+
+  .list-group {
+    animation-name: load-list-from-bottom;
+    animation-duration: 2s;
+  }
+
+  // Modify default modal animation
+  .modal.fade.show .modal-dialog { transition: transform 0.8s ease-out; }
+  .modal.fade .modal-dialog { animation-direction: reverse; animation-duration: 3s; }
 }
-
-.list-group {
-  animation-name: load-list-from-bottom;
-  animation-duration: 2s;
-}
-
-// Modify default modal animation
-.modal.fade.show .modal-dialog { transition: transform 0.8s ease-out; }
-.modal.fade .modal-dialog { animation-direction: reverse; animation-duration: 3s; }
-
-// @keyframes logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
-
-// @media (prefers-reduced-motion: no-preference) {
-//   a:nth-of-type(2) .logo {
-//     animation: logo-spin infinite 20s linear;
-//   }
-// }

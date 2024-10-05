@@ -10,9 +10,11 @@
 /* Layering Images on Landing */
 .splash-image,
 .list-group-item { z-index: 1; }
-.landing-content { z-index: 2; }
+.landing-content { z-index: 3; }
 
 /* Landing Page Styles */
+
+// Check if user is on landing and apply accent background color
 html:has(.landing-page),
 body:has(.landing-page) { background-color: var(--accent); }
 
@@ -22,11 +24,7 @@ body:has(.landing-page) { background-color: var(--accent); }
   position: relative;
   height: 100%;
 
-  .splash-image {
-    height: auto;
-    position: absolute;
-  }
-
+  // Shapes in the background
   .shape-left-top,
   .shape-left-bottom {
     @extend %shape-base;
@@ -65,6 +63,69 @@ body:has(.landing-page) { background-color: var(--accent); }
     );
   }
 
+  // Additional white next to the light image for wider screens
+  .light-extension {
+    height: 100%;
+    background: var(--white);
+    position: absolute;
+    top: 0;
+    width: 0;
+    left: 0;
+    z-index: 1;
+    @include media-breakpoint-up(xl) { width: 8%; }
+    @include media-breakpoint-up(xxl) { width: 21%; }
+  }
+
+  // Building the splash image from multiple svg parts for responsive and animation
+  .splash-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 10rem;
+
+    .large-reel {
+      width: 17rem;
+      position: absolute;
+      top: 24.5rem;
+      right: 12.3rem;
+      z-index: 2;
+    }
+
+    .small-reel {
+      width: 13rem;
+      position: absolute;
+      top: 32rem;
+      right: -1.5rem;
+      z-index: 2;
+    }
+
+    .camera {
+      width: 46.8rem;
+      position: absolute;
+      top: 25.8rem;
+      right: -3rem;
+      z-index: 1;
+    }
+
+    .light {
+      width: 101.5rem;
+      position: absolute;
+      top: 0;
+      right: 40rem;
+      z-index: 0;
+    }
+
+    .stand {
+      width: 40.3rem;
+      position: absolute;
+      top: 53rem;
+      right: 5rem;
+      z-index: 0;
+    }
+  }
+
+  // Content box with title and search
   .landing-content {
     margin-top: 35rem;
     margin-left: 10rem;
@@ -74,66 +135,50 @@ body:has(.landing-page) { background-color: var(--accent); }
 }
 
 @include media-breakpoint-down(xl) {
-  .landing-page .landing-content {
-    margin-top: 20rem;
-    margin-left: 8rem;
-  }
+  .landing-page .landing-content { margin-left: 8rem; }
 }
 
 @include media-breakpoint-down(lg) {
   .landing-page {
-    max-height: 72rem;
-
     .landing-content {
       margin-top: 15rem;
       margin-left: 4rem;
       width: 40%;
     }
-  }
-}
 
-@include media-breakpoint-up(md) {
-  .landing-page {
     .splash-image {
-      max-width: 100%;
-      height: auto;
-      position: absolute;
-      top: 0;
-      right: 0;
+      top: 10rem;
+      right: -30rem;
+      transform: rotate(41deg);
+
+      .stand { display: none; }
     }
   }
 }
 
 @include media-breakpoint-down(md) {
   .landing-page {
-    max-height: none;
-
-    & > .splash-image {
-      width: 1440px;
-      height: auto;
-      position: absolute;
-      top: -10rem;
-      right: -21rem;
-      transform: rotate(50deg);
-    }
-
     .landing-content {
+      margin-top: $xs-spacing;
       margin-left: $xs-spacing;
       width: 50%;
+    }
+
+    .splash-image {
+      top: 32rem;
+      right: -50rem;
+      transform: rotate(72deg);
     }
   }
 }
 
 @include media-breakpoint-down(sm) {
   .landing-page {
-    max-height: none;
+    .landing-content { width: 70%; }
 
-    & > .splash-image {
-      top: -15rem;
-      right: -40rem;
-      transform: rotate(80deg);
+    .splash-image {
+      top: 38rem;
+      transform: rotate(77deg);
     }
-
-    .landing-content { width: 80%; }
   }
 }
