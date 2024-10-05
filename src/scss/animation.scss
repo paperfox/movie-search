@@ -1,17 +1,69 @@
+@include media-breakpoint-up(xl) {
+  :root {
+    --landing-top-margin: 35rem;
+    --landing-left-margin: 10rem;
+    --landing-width: 30%;
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  :root {
+    --landing-top-margin: 20rem;
+    --landing-left-margin: 10rem;
+    --landing-width: 30%;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  :root {
+    --landing-top-margin: 10rem;
+    // --landing-left-margin: 10rem;
+    --landing-width: 40%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  :root {
+    // --landing-top-margin: 10rem;
+    // --landing-left-margin: 10rem;
+    --landing-width: 50%;
+  }
+}
+
 @include media-breakpoint-up(sm) {
-  :root { --slide-up-y: 10rem; }
+  :root {
+    --list-top-margin: 10rem;
+  }
 }
 
 @include media-breakpoint-down(sm) {
-  :root { --slide-up-y: 12rem; }
+  :root {
+    --list-top-margin: 12rem;
+    --landing-width: 80%;
+  }
 }
 
-
 @keyframes move-search-to-nav {
-  0%   {margin-top: 20rem; margin-left: 10rem; width: 30%;}
-  25%  {margin-top: 0rem; margin-left: 0rem; width: 30%;}
-  50%  {margin-top: 0rem; margin-left: 0rem; width: 100%;}
-  100% {margin-top: 0rem; margin-left: 0rem; width: 100%;}
+  0% {
+    margin-top: var(--landing-top-margin);
+    margin-left: var(--landing-left-margin);
+    width: var(--landing-width);
+  }
+  25% {
+    margin-top: 0rem;
+    margin-left: 0rem;
+    width: var(--landing-width);
+  }
+  50% {
+    margin-top: 0rem;
+    margin-left: 0rem;
+    width: 100%;
+  }
+  100% {
+    margin-top: 0rem;
+    margin-left: 0rem;
+    width: 100%;
+  }
 }
 
 .animate-width.nav-width {
@@ -20,8 +72,12 @@
 }
 
 @keyframes load-list-from-bottom {
-  0%   {margin-top: 80vh;}
-  100% {margin-top: var(--slide-up-y);}
+  0% {
+    margin-top: 80vh;
+  }
+  100% {
+    margin-top: var(--list-top-margin);
+  }
 }
 
 .list-group {
