@@ -31,7 +31,13 @@ function App() {
   const apiKey = import.meta.env.VITE_KEY;
   const url = `https://api.themoviedb.org/3/search/movie?query=${term}&include_adult=false&language=en-US&page=1`;
 
-  // do search on button click
+  // search on button or enter
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    passTerm();
+  };
+
   const passTerm = () => {
     const fetchData = async () => {
       if (!term) {
@@ -81,7 +87,7 @@ function App() {
             }
           >
             <h1 className="page-title">Find the Perfect Movie</h1>
-            <form className="row my-4">
+            <form className="row my-4" onSubmit={handleFormSubmit}>
               <div
                 className={
                   movies.length === 0
