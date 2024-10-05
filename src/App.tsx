@@ -1,5 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
-import { useDebounce } from "use-debounce";
+import { useState } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
@@ -11,10 +10,6 @@ import light from "./assets/light.svg";
 import largeReel from "./assets/large-reel.svg";
 import smallReel from "./assets/small-reel.svg";
 import stand from "./assets/stand.svg";
-
-// To do:
-// Write Tests
-// fix button/enter issue
 
 interface MovieData {
   id: number;
@@ -36,12 +31,16 @@ function App() {
   const apiKey = import.meta.env.VITE_KEY;
   const url = `https://api.themoviedb.org/3/search/movie?query=${term}&include_adult=false&language=en-US&page=1`;
 
-  const [debouncedTerm] = useDebounce(term, 1000);
+  // search on button or enter
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  // gets movies when user pauses in typing
-  useEffect(() => {
+    passTerm();
+  };
+
+  const passTerm = () => {
     const fetchData = async () => {
-      if (!debouncedTerm) {
+      if (!term) {
         return console.log("No search term provided");
       }
       try {
@@ -60,12 +59,13 @@ function App() {
       }
     };
     fetchData();
-  }, [debouncedTerm]);
+  };
 
-  // sets search term to empty string which reloads the landing page
-  const clearSearch = useCallback(() => {
-    setTerm(" ");
-  }, []);
+  // reset to get back to landing page
+  const backToLanding = () => {
+    setTerm('');
+    setMovies([]);
+  };
 
   // settings the classes based on the length of the movies array below ensures the focus doesn't leave the search box
   // this maintains a consistent user experience as the user goes from one layout to the next since it's a single page app
@@ -87,7 +87,7 @@ function App() {
             }
           >
             <h1 className="page-title">Find the Perfect Movie</h1>
-            <form className="row my-4">
+            <form className="row my-4" onSubmit={handleFormSubmit}>
               <div
                 className={
                   movies.length === 0
@@ -105,15 +105,20 @@ function App() {
                     type="search"
                     onChange={(e) => setTerm(e.target.value)}
                   />
-                  <InputGroup.Text>
+                  <Button
+                    variant="primary"
+                    id="btn-movie-search"
+                    aria-label="Search"
+                    onClick={passTerm}
+                  >
                     <span className="icon-search"></span>
-                  </InputGroup.Text>
+                  </Button>
                 </InputGroup>
               </div>
 
               {movies.length > 0 ? (
                 <p className="col-auto align-self-center mb-0">
-                  <Button variant="link" type="button" onClick={clearSearch}>
+                  <Button variant="link" type="button" onClick={backToLanding}>
                     Back to Landing
                   </Button>
                 </p>

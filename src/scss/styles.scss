@@ -48,11 +48,10 @@ a,
 }
 
 .input-group {
-  .input-group-text {
+  .btn.btn-primary {
     border: $border-dark;
     border-left: none;
     border-radius: $base-spacing;
-    background-color: var(--white);
   }
 }
 
