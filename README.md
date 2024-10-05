@@ -27,7 +27,8 @@ $ npm install
 ```
 
 3. **Add Key to .env**
-   Add the 'API Read Access Token' from TMDB as VITE_KEY to your .env file for simplest set up
+
+Add the 'API Read Access Token' from TMDB as VITE_KEY to your .env file for simplest set up
 
 ## Commands
 
