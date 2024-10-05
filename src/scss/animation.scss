@@ -1,3 +1,4 @@
+// Responsive values for animations
 @include media-breakpoint-up(xl) {
   :root {
     --landing-top-margin: 35rem;
@@ -9,23 +10,22 @@
 @include media-breakpoint-down(xl) {
   :root {
     --landing-top-margin: 20rem;
-    --landing-left-margin: 10rem;
+    --landing-left-margin: 8rem;
     --landing-width: 30%;
   }
 }
 
 @include media-breakpoint-down(lg) {
   :root {
-    --landing-top-margin: 10rem;
-    // --landing-left-margin: 10rem;
+    --landing-top-margin: 15rem;
+    --landing-left-margin: 4rem;
     --landing-width: 40%;
   }
 }
 
 @include media-breakpoint-down(md) {
   :root {
-    // --landing-top-margin: 10rem;
-    // --landing-left-margin: 10rem;
+    --landing-left-margin: $xs-spacing;
     --landing-width: 50%;
   }
 }
@@ -38,11 +38,12 @@
 
 @include media-breakpoint-down(sm) {
   :root {
-    --list-top-margin: 12rem;
+    --list-top-margin: 15rem;
     --landing-width: 80%;
   }
 }
 
+// Searchbar to Nav Animation
 @keyframes move-search-to-nav {
   0% {
     margin-top: var(--landing-top-margin);
@@ -66,21 +67,38 @@
   }
 }
 
-.animate-width.nav-width {
-  animation-name: move-search-to-nav;
-  animation-duration: 3s;
+// List animation
+@keyframes load-list-from-bottom {
+  0%   { margin-top: 80vh; }
+  100% { margin-top: var(--list-top-margin); }
 }
 
-@keyframes load-list-from-bottom {
-  0% {
-    margin-top: 80vh;
-  }
-  100% {
-    margin-top: var(--list-top-margin);
-  }
+// Searchbar to nav animation
+.animate-width.search-navigation {
+  animation-name: move-search-to-nav;
+  animation-duration: 3s;
 }
 
 .list-group {
   animation-name: load-list-from-bottom;
   animation-duration: 2s;
 }
+
+// Modify default modal animation
+.modal.fade.show .modal-dialog { transition: transform 0.8s ease-out; }
+.modal.fade .modal-dialog { animation-direction: reverse; animation-duration: 3s; }
+
+// @keyframes logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// @media (prefers-reduced-motion: no-preference) {
+//   a:nth-of-type(2) .logo {
+//     animation: logo-spin infinite 20s linear;
+//   }
+// }

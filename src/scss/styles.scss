@@ -1,4 +1,5 @@
 @import "./bootstrap-imports";
+@import "./variables";
 @import "./core";
 @import "./landing";
 @import "./list";
@@ -13,28 +14,52 @@ body,
 #root main { flex: 1 0 auto; }
 footer     { flex-shrink: 0; }
 
+/* Buttons and Links*/
+a,
+.btn.btn-link {
+  font-size: inherit;
+  color: var(--link);
+}
+
+.btn.btn-primary {
+  padding: $base-spacing $sm-spacing 0.7rem;
+  border-radius: 3rem;
+  border: $border-accent;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: rgba(var(--black), 1);
+  transition: background-color 500ms, color 400ms;
+
+  &:hover,
+  &:active {
+    background-color: var(--link);
+    border-color: var(--link);
+    color: var(--white);
+  }
+}
+
 /* Forms */
 .form-control {
-  border: 0.2rem solid var(--lines-dark);
+  border: $border-dark;
   border-right: none;
-  border-radius: 0.8rem;
+  border-radius: $base-spacing;
 
   &input { background-color: var(--white); }
 }
 
-.input-group .btn {
-  &.btn-primary {
-    border: 0.2rem solid var(--lines-dark);
+.input-group {
+  .input-group-text {
+    border: $border-dark;
     border-left: none;
-    border-radius: 0.8rem;
-  }
-
-  &.btn-link {
-    border-top: 0.2rem solid var(--lines-dark);
-    border-bottom: 0.2rem solid var(--lines-dark);
+    border-radius: $base-spacing;
+    background-color: var(--white);
   }
 }
 
+/* Decoration */
+hr { color: var(--lines); }
 
-.modal.fade.show .modal-dialog { transition: transform 0.8s ease-out; }
-.modal.fade .modal-dialog { animation-direction: reverse; animation-duration: 3s; }
+.icon-search {
+  @extend %icons;
+  background: transparent url(../../icon-search.svg) no-repeat center;
+}

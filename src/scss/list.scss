@@ -1,22 +1,22 @@
 /* List View Page Styles */
-.as-nav {
-  .nav-width {
+.list-navigation {
+  .search-navigation {
     background-color: var(--white);
-    box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
+    box-shadow: 0 $base-spacing $base-spacing rgba(var(--black), 0.15);
     position: fixed;
     width: 100%;
     z-index: $zindex-fixed;
   }
 
+  // Saves some js here to extend this based on the parent class
   .row        { @extend .justify-content-center; }
   // h1 becomes screenreader only text
   .page-title { @include visually-hidden; }
 }
 
-
 .list-group {
-  box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
-  border-radius: 0.8rem;
+  box-shadow: 0 $base-spacing $base-spacing rgba(var(--black), 0.15);
+  border-radius: $base-spacing;
   margin-top: 10rem;
   margin-bottom: 3.2rem;
 
@@ -24,8 +24,9 @@
     border: 0.1rem solid transparent;
     border-bottom-color: var(--lines);
     cursor: pointer;
-    padding: 1.6rem;
+    padding: $xs-spacing;
 
+    // Creates corner image on list
     .img-container {
       height: 70px;
       width: 70px;
@@ -48,13 +49,8 @@
       outline: 0.2rem dotted rgba(var(--black), 1);
     }
 
-    &:first-child .img-fluid { border-top-left-radius: 0.8rem; }
+    &:first-child .img-fluid { border-top-left-radius: $base-spacing; }
   }
 
-  @include media-breakpoint-down(sm) { margin-top: 12rem; }
-}
-
-
-.visually-hidden + .list-group {
-  margin: 0;
+  @include media-breakpoint-down(sm) { margin-top: 15rem; }
 }

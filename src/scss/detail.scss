@@ -1,5 +1,6 @@
 .modal-fullscreen .modal-content {
-  border: 1.6rem solid var(--accent);
+  border: $border-accent;
+  border-width: 1.6rem;
 
   .modal-header {
     border-bottom: none;
@@ -10,8 +11,8 @@
       opacity: 1;
       height: 2.4rem;
       width: 2.4rem;
-      background: transparent var(--bs-btn-close-bg) center / 1.6rem auto no-repeat;
-      margin: -1rem -1rem -1rem auto;
+      background: transparent var(--bs-btn-close-bg) center / $xs-spacing auto no-repeat;
+      margin: -#{$base-spacing} -#{$base-spacing} -#{$base-spacing} auto;
     }
   }
 
@@ -20,16 +21,14 @@
     @extend %overlay;
     border-top: 5rem solid var(--accent);
     position: absolute;
-    top: -0.8rem;
+    top: -$base-spacing;
     right: -3.3rem;
     transform: rotate(-135deg);
   }
 }
 
 .badge.text-bg-light {
-  border: 0.1rem solid var(--accent);
-  font-size: 1.2rem;
-  font-weight: 700;
+  border: $border-accent;
   letter-spacing: 0.01rem;
   padding: 0.7rem 1.2rem 0.6rem;
   margin-right: 0.4rem;
