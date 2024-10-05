@@ -8,7 +8,7 @@ Created using Vite with React and TypeScript.
 
 - Node.js (version v20.0.0 or higher recommended)
 - npm (version 9.0.0 or higher)
-- An API Key from TMDB. Grab one here: https://developer.themoviedb.org/docs/getting-started
+- An API Key from TMDB. [Grab one here](https://developer.themoviedb.org/docs/getting-started)
 
 ### Installation
 
@@ -28,7 +28,7 @@ $ npm install
 
 3. **Add Key to .env**
 
-Add the 'API Read Access Token' from TMDB as VITE_KEY to your .env file for simplest set up
+Add the `API Read Access Token` from TMDB as `VITE_KEY` to your `.env` file for simplest set up
 
 ## Commands
 
@@ -49,3 +49,6 @@ Deploy
 ```bash
 $ npm run deploy
 ```
+
+
+[Live Site](https://paperfox-movie-search.netlify.app/)
