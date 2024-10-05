@@ -153,6 +153,15 @@ body:has(.landing-page) { background-color: var(--accent); }
 
       .stand { display: none; }
     }
+
+    .shape-left-top,
+    .shape-right-top { display: none; }
+
+    .shape-left-bottom,
+    .shape-right-bottom {
+      height: 100%;
+      width: 45%;
+    }
   }
 }
 
