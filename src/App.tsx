@@ -61,9 +61,9 @@ function App() {
     fetchData();
   };
 
-  // sets search term to empty string which reloads the landing page
-  const clearSearch = () => {
-    setTerm(" ");
+  // reset to get back to landing page
+  const backToLanding = () => {
+    setTerm('');
     setMovies([]);
   };
 
@@ -118,7 +118,7 @@ function App() {
 
               {movies.length > 0 ? (
                 <p className="col-auto align-self-center mb-0">
-                  <Button variant="link" type="button" onClick={clearSearch}>
+                  <Button variant="link" type="button" onClick={backToLanding}>
                     Back to Landing
                   </Button>
                 </p>
