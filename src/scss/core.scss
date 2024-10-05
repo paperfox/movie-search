@@ -24,51 +24,11 @@ html {
 
 body {
   background-color: var(--main-bg);
-  font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Nunito", "Helvetica Neue", Arial, sans-serif;
   color: rgb(var(--black));
 }
 
-/* Typography */
-h1,
-h2,
-.btn {
-  font-weight: 600;
-}
-
-h3,
-label {
-  font-weight: 700;
-}
-
-p {
-  font-weight: 400;
-  color: var(--text-body);
-}
-
-h1 {
-  font-size: 3.4rem;
-  margin-bottom: 3rem;
-}
-
-h2 {
-  font-size: 2.4rem;
-  margin-bottom: 1.8rem;
-}
-
-h3 {
-  font-size: 2rem;
-  margin-bottom: 1.6rem;
-}
-
-p,
-h4,
-.btn,
-label,
-.form-control {
-  font-size: 1.8rem;
-}
-
-/* Placeholders */
+/* General Placeholders */
 %overlay {
   width: 0;
   height: 0;
@@ -81,13 +41,39 @@ label,
   transform: rotate(-45deg);
 }
 
-%white-filter {
-  filter: brightness(0) saturate(100%) invert(98%) sepia(4%) saturate(138%) hue-rotate(215deg) brightness(117%)
-    contrast(100%);
+%white-filter { filter: brightness(0) saturate(100%) invert(98%) sepia(4%) saturate(138%) hue-rotate(215deg) brightness(117%) contrast(100%); }
+
+%icons {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: inline-block;
+  vertical-align: text-top;
 }
 
+/* Typography */
+h1,
+h2,
+.btn          { font-weight: 600; }
+
+h3,
+label         { font-weight: 700; }
+
+p             { font-weight: 400; color: var(--text-body); }
+
+h1            { font-size: 3.4rem; margin-bottom: 3rem; }
+h2            { font-size: 2.4rem; margin-bottom: 1.8rem; }
+h3            { font-size: 2rem;   margin-bottom: 1.6rem; }
+
+p,
+h4,
+.btn,
+label,
+.form-control { font-size: 1.8rem; }
+
+
 /* Buttons and Links*/
-a {
+a,
+.btn.btn-link {
   font-size: inherit;
   color: var(--link);
 }
@@ -107,24 +93,17 @@ a {
     border-color: var(--link);
     color: var(--white);
 
-    .icon-search {
-      @extend %white-filter;
-    }
+    .icon-search { @extend %white-filter; }
   }
-  &:has(.icon-search) {
-    padding: 0.8rem 1.6rem;
-  }
+
+  &:has(.icon-search) { padding: 0.8rem 1.6rem; }
 }
+
+
+/* Decoration */
+hr { color: var(--lines); }
 
 .icon-search {
-  height: 2.4rem;
-  width: 2.4rem;
-  display: inline-block;
-  vertical-align: text-top;
-  background: transparent url(../../public/icon-search.svg) no-repeat center;
-}
-
-/* Other */
-hr {
-  color: var(--lines);
+  @extend %icons;
+  background: transparent url(../../icon-search.svg) no-repeat center;
 }

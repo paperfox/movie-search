@@ -1,33 +1,30 @@
-.knocked-popcorn {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -50px;
-
-  animation: rotate 1s linear infinite;
-  animation-play-state: paused;
-  animation-delay: calc(var(--scroll) * -1s);
-
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
+@include media-breakpoint-up(sm) {
+  :root { --slide-up-y: 10rem; }
 }
 
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
+@include media-breakpoint-down(sm) {
+  :root { --slide-up-y: 12rem; }
 }
 
-// body {
-//   min-height: 500vh;
-// }
 
-@keyframes example {
-  from {
-    background-color: red;
-  }
-  to {
-    background-color: yellow;
-  }
+@keyframes move-search-to-nav {
+  0%   {margin-top: 20rem; margin-left: 10rem; width: 30%;}
+  25%  {margin-top: 0rem; margin-left: 0rem; width: 30%;}
+  50%  {margin-top: 0rem; margin-left: 0rem; width: 100%;}
+  100% {margin-top: 0rem; margin-left: 0rem; width: 100%;}
+}
+
+.animate-width.nav-width {
+  animation-name: move-search-to-nav;
+  animation-duration: 3s;
+}
+
+@keyframes load-list-from-bottom {
+  0%   {margin-top: 80vh;}
+  100% {margin-top: var(--slide-up-y);}
+}
+
+.list-group {
+  animation-name: load-list-from-bottom;
+  animation-duration: 2s;
 }

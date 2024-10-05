@@ -1,0 +1,138 @@
+
+/* Placeholder specific to this file only*/
+%shape-base {
+  height: 50%;
+  background: var(--accent-dark);
+  position: absolute;
+  top: 0;
+}
+
+/* Layering Images on Landing */
+.splash-image,
+.list-group-item { z-index: 1; }
+.landing-content { z-index: 2; }
+
+/* Landing Page Styles */
+html:has(.full-window),
+body:has(.full-window) { background-color: var(--accent); }
+
+.full-window {
+  background-color: var(--accent);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  .splash-image {
+    height: auto;
+    position: absolute;
+  }
+
+  .shape-left-top,
+  .shape-left-bottom {
+    @extend %shape-base;
+    width: 40%;
+    transform: skew(50deg);
+    left: 20rem;
+  }
+
+  .shape-left-bottom {
+    top: auto;
+    bottom: 0;
+    transform: skew(-50deg);
+    background-image: linear-gradient(
+      var(--accent-dark),
+      var(--accent-dark),
+      var(--accent)
+    );
+  }
+
+  .shape-right-top,
+  .shape-right-bottom {
+    @extend %shape-base;
+    width: 25%;
+    transform: skew(30deg);
+    right: -6rem;
+  }
+
+  .shape-right-bottom {
+    top: auto;
+    bottom: 0;
+    transform: skew(-30deg);
+    background-image: linear-gradient(
+      var(--accent-dark),
+      var(--accent-dark),
+      var(--accent)
+    );
+  }
+
+  .landing-content {
+    margin-top: 35rem;
+    margin-left: 10rem;
+    width: 30%;
+    position: relative;
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .full-window .landing-content {
+    margin-top: 20rem;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .full-window {
+    max-height: 72rem;
+
+    .landing-content {
+      margin-top: 10rem;
+      width: 40%;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .full-window {
+    .splash-image {
+      max-width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .full-window {
+    max-height: none;
+
+    & > .splash-image {
+      width: 1440px;
+      height: auto;
+      position: absolute;
+      top: -10rem;
+      right: -21rem;
+      transform: rotate(50deg);
+    }
+
+    .landing-content {
+      width: 50%;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .full-window {
+    max-height: none;
+
+    & > .splash-image {
+      top: -15rem;
+      right: -40rem;
+      transform: rotate(80deg);
+    }
+
+    .landing-content {
+      width: 80%;
+    }
+  }
+}

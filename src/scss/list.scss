@@ -1,3 +1,19 @@
+/* List View Page Styles */
+.as-nav {
+  .nav-width {
+    background-color: var(--white);
+    box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
+    position: fixed;
+    width: 100%;
+    z-index: $zindex-fixed;
+  }
+
+  .row        { @extend .justify-content-center; }
+  // h1 becomes screenreader only text
+  .page-title { @include visually-hidden; }
+}
+
+
 .list-group {
   box-shadow: 0 0.8rem 0.8rem rgba(var(--black), 0.15);
   border-radius: 0.8rem;
@@ -17,35 +33,28 @@
       overflow: hidden;
       margin: -1.7rem;
 
-      .img-overlay {
-        @extend %overlay;
-      }
+      .img-overlay { @extend %overlay; }
     }
 
     &:hover,
     &:focus {
       background-color: var(--main-bg);
 
-      .img-overlay {
-        border-top: 5rem solid var(--main-bg);
-      }
+      .img-overlay { border-top: 5rem solid var(--main-bg); }
     }
+
     &:focus-visible {
       outline-offset: 0.1rem;
       outline: 0.2rem dotted rgba(var(--black), 1);
     }
-    &:active {
-      border: 0.1rem solid var(--accent);
-    }
 
-    &:first-child {
-      .img-fluid {
-        border-top-left-radius: 0.8rem;
-      }
-    }
+    &:first-child .img-fluid { border-top-left-radius: 0.8rem; }
   }
 
-  @include media-breakpoint-down(sm) {
-    margin-top: 12rem;
-  }
+  @include media-breakpoint-down(sm) { margin-top: 12rem; }
+}
+
+
+.visually-hidden + .list-group {
+  margin: 0;
 }
