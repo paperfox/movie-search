@@ -6,6 +6,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import projector from './assets/projector.svg';
+import popcornPiece1 from './assets/popcorn-1.svg';
+// import popcornPiece2 from './assets/popcorn-2.svg';
+// import popcornPiece3 from './assets/popcorn-3.svg';
 
 interface MovieData {
   id: number;
@@ -61,7 +64,7 @@ function App() {
         <>
           <header className="as-nav">
             <div className="row justify-content-center">
-              <div className="col-lg-6">
+              <div className="col-lg-7 col-xl-6">
                 <h1 className="page-title">Find the Perfect Movie</h1>
 
                 <div className="row justify-content-center m-4">
@@ -77,8 +80,8 @@ function App() {
                         type="text"
                         onChange={(e) => setTerm(e.target.value)}
                       />
-                      <Button variant="primary" id="btn-movie-search">
-                        Search
+                      <Button variant="primary" id="btn-movie-search" aria-label="Search">
+                        <span className="icon-search"></span>
                       </Button>
                     </InputGroup>
                   </div>
@@ -88,6 +91,7 @@ function App() {
           </header>
 
           <main className="container">
+            <img src={popcornPiece1} className="knocked-popcorn" alt="" />
             <div className="row justify-content-center">
               <div className="col-auto col-lg-10 col-xl-9 align-self-center">
                 <ListGroup>{movies.length > 0 ? movies.map((movie) => <ListItems movie={movie} />) : ''}</ListGroup>
@@ -98,7 +102,7 @@ function App() {
       ) : (
         <header className="container-fluid full-window">
           <div className="row">
-            <div className="col-auto offset-md-1 align-self-center landing-content">
+            <div className="col-auto offset-lg-1 align-self-center landing-content">
               <h1 className="page-title">Find the Perfect Movie</h1>
               <div>
                 <label htmlFor="input-movie-search" className="d-block mb-2">
@@ -113,8 +117,8 @@ function App() {
                     type="text"
                     onChange={(e) => setTerm(e.target.value)}
                   />
-                  <Button variant="primary" id="btn-movie-search">
-                    Search
+                  <Button variant="primary" id="btn-movie-search" aria-label="Search">
+                    <span className="icon-search"></span>
                   </Button>
                 </InputGroup>
               </div>

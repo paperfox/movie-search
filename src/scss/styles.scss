@@ -2,6 +2,7 @@
 @import './core';
 @import './list';
 @import './detail';
+@import './animation';
 
 %shape-base {
   height: 50%;
@@ -40,6 +41,9 @@ footer {
   overflow: hidden;
   position: relative;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .splash-image {
     max-width: 100%;
@@ -78,6 +82,10 @@ footer {
     transform: skew(-30deg);
     background-image: linear-gradient(var(--accent-dark), var(--accent-dark), var(--accent));
   }
+  .landing-content {
+    margin-top: 10vh;
+    margin-bottom: 15vh;
+  }
 }
 
 html:has(.full-window),
@@ -95,49 +103,52 @@ body:has(.full-window) {
   .page-title {
     @include visually-hidden;
   }
-
-  // & + .container {
-  //   margin-top: 6.4rem;
-  // }
-}
-
-.btn.btn-primary {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: rgba(var(--black), 1);
 }
 
 .form-control {
   border: 0.2rem solid var(--lines-dark);
   border-right: none;
+  border-radius: 0.8rem;
 }
 .input-group .btn.btn-primary {
   border: 0.2rem solid var(--lines-dark);
   border-left: none;
+  border-radius: 0.8rem;
 }
 
 .owo {
   // animate transition from full window to this
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-down(xl) {
   .full-window {
     .landing-content {
-      margin-top: 16rem;
+      margin-top: 5vh;
+      margin-bottom: 25vh;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .full-window {
+    max-height: 72rem;
+    .landing-content {
+      margin-top: 5vh;
+      margin-bottom: 25vh;
     }
   }
 }
 
 @include media-breakpoint-up(xl) {
-  .full-window {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  // .full-window {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
 
-    .landing-content {
-      margin-bottom: 8rem;
-    }
-  }
+  //   .landing-content {
+  //     margin-bottom: 8rem;
+  //   }
+  // }
 }
 
 // @include media-breakpoint-down(lg) {

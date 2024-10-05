@@ -19,15 +19,13 @@ interface movieItem {
 
 function ListItems({ movie }: { movie: movieItem }) {
   const [show, setShow] = useState(false);
-  const [fullscreen, setFullscreen] = useState(true);
 
   const date = new Date(movie.release_date + 'T00:00:00').toLocaleDateString();
-  const truncate = (input) => (input.length > 140 ? `${input.substring(0, 140)}...` : input);
+  const truncate = (input: string) => (input.length > 130 ? `${input.substring(0, 130)}...` : input);
   const shortOverview = truncate(movie.overview);
   const poster = movie.poster_path === null ? popcorn : `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   const handleShowModal = () => {
-    setFullscreen(true);
     setShow(!show);
   };
 
@@ -45,7 +43,7 @@ function ListItems({ movie }: { movie: movieItem }) {
             <h2>{movie.title}</h2>
             <p>{date}</p>
           </div>
-          <div className="col-sm-7 col-md-8 col-xl-7">
+          <div className="col-sm-7 col-md-8">
             <p>{shortOverview}</p>
           </div>
         </div>
