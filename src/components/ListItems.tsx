@@ -40,8 +40,10 @@ function ListItems({ movie }: { movie: movieItem }) {
             </div>
           </div>
           <div className="col-9 col-sm-3">
-            <h2>{movie.title}</h2>
-            <p>{date}</p>
+            <h2 className="mb-0">{movie.title}</h2>
+            <p>
+              <small>{date}</small>
+            </p>
           </div>
           <div className="col-sm-7 col-md-8">
             <p>{shortOverview}</p>
@@ -62,14 +64,26 @@ function ListItems({ movie }: { movie: movieItem }) {
             </div>
             <div className="col-sm-6 col-lg-6 col-xl-5 mt-4">
               <h2>{movie.title}</h2>
-              <p>Original Title: {movie.original_title}</p>
+              <p>
+                <strong>Original Title:</strong> {movie.original_title}
+              </p>
               <hr />
-              <p>{movie.overview}</p>
-              <p>Release Date: {date}</p>
-              <p>Original Language: {movie.original_language}</p>
-              <p>Popularity: {movie.popularity}</p>
-              <p>Vote Average: {movie.vote_average}</p>
-              <p>Vote Count: {movie.vote_count}</p>
+              <p className="mb-3">{movie.overview}</p>
+              <p>
+                <strong>Release Date:</strong> {date}
+              </p>
+              <p>
+                <strong>Original Language:</strong> {movie.original_language}
+              </p>
+              <p>
+                <strong>Popularity:</strong> {movie.popularity}
+              </p>
+              <p>
+                <strong>Vote Average:</strong> {movie.vote_average}
+              </p>
+              <p>
+                <strong>Vote Count:</strong> {movie.vote_count}
+              </p>
               <div>
                 <span className="badge rounded-pill text-bg-light">GENRE</span>
                 <span className="badge rounded-pill text-bg-light">GENRE</span>

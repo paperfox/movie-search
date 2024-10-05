@@ -110,52 +110,27 @@ body:has(.full-window) {
   border-right: none;
   border-radius: 0.8rem;
 }
+
 .input-group .btn.btn-primary {
   border: 0.2rem solid var(--lines-dark);
   border-left: none;
   border-radius: 0.8rem;
 }
 
-.owo {
-  // animate transition from full window to this
-}
-
 @include media-breakpoint-down(xl) {
-  .full-window {
-    .landing-content {
-      margin-top: 5vh;
-      margin-bottom: 25vh;
-    }
+  .full-window .landing-content {
+    margin-top: 5vh;
+    margin-bottom: 25vh;
   }
 }
 
 @include media-breakpoint-down(lg) {
   .full-window {
     max-height: 72rem;
+
     .landing-content {
-      margin-top: 5vh;
-      margin-bottom: 25vh;
+      margin-top: 3vh;
+      margin-bottom: 27vh;
     }
   }
-}
-
-@include media-breakpoint-up(xl) {
-  // .full-window {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-
-  //   .landing-content {
-  //     margin-bottom: 8rem;
-  //   }
-  // }
-}
-
-// @include media-breakpoint-down(lg) {
-//   .full-window {
-
-//   }
-// }
-
-@include media-breakpoint-down(sm) {
 }
