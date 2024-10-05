@@ -97,17 +97,8 @@ function ListItems({ movie }: { movie: movieItem }) {
               <p>
                 <strong>Vote Count:</strong> {movie.vote_count}
               </p>
-              {/* <div>
-                <span className="badge rounded-pill text-bg-light">GENRE</span>
-                <span className="badge rounded-pill text-bg-light">GENRE</span>
-                <span className="badge rounded-pill text-bg-light">GENRE</span>
-              </div> */}
             </div>
           </div>
-          {/* "genre_ids": [
-      27,
-      35
-  ], */}
           <div className="text-center mt-5 mb-3">
             <Button variant="primary" onClick={handleShowModal}>
               CLOSE
