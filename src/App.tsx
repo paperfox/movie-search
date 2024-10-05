@@ -4,7 +4,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import ListItems from "./components/ListItems";
-import Footer from "./components/Footer";
 import camera from "./assets/camera.svg";
 import light from "./assets/light.svg";
 import largeReel from "./assets/large-reel.svg";
@@ -63,7 +62,7 @@ function App() {
 
   // reset to get back to landing page
   const backToLanding = () => {
-    setTerm('');
+    setTerm("");
     setMovies([]);
   };
 
@@ -97,7 +96,9 @@ function App() {
               >
                 <label htmlFor="input-movie-search">Search</label>
               </div>
-              <div className={movies.length === 0 ? "col-sm-9" : "col-sm-6"}>
+              <div
+                className={movies.length === 0 ? "col-sm-9" : "col-11 col-sm-6"}
+              >
                 <InputGroup>
                   <Form.Control
                     id="input-movie-search"
@@ -190,7 +191,6 @@ function App() {
           </p>
         )}
       </main>
-      <Footer />
     </>
   );
 }

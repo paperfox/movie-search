@@ -26,6 +26,11 @@ body {
   color: rgb(var(--black));
 }
 
+/* Allow full page image */
+html,
+body,
+#root      { height: 100%; }
+
 /* General Placeholders */
 %overlay {
   width: 0;
