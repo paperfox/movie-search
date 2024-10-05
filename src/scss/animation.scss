@@ -20,6 +20,13 @@
     --landing-top-margin: 15rem;
     --landing-left-margin: 4rem;
     --landing-width: 40%;
+    --landing-duration: 2.5s;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  :root {
+    --landing-duration: 2.5s;
   }
 }
 
@@ -27,6 +34,7 @@
   :root {
     --landing-left-margin: $xs-spacing;
     --landing-width: 50%;
+    --landing-duration: 1.5s;
   }
 }
 
@@ -94,7 +102,7 @@
   // Searchbar to nav animation
   .animate-width.search-navigation {
     animation-name: move-search-to-nav;
-    animation-duration: 3s;
+    animation-duration: var(--landing-duration);
   }
 
   .list-group {
