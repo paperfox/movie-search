@@ -26,6 +26,7 @@ interface MovieData {
 function App() {
   const [movies, setMovies] = useState<MovieData[]>([]);
   const [term, setTerm] = useState("");
+  const [errorClass, setErrorClass] = useState(false);
 
   const apiKey = import.meta.env.VITE_KEY;
   const url = `https://api.themoviedb.org/3/search/movie?query=${term}&include_adult=false&language=en-US&page=1`;
@@ -40,7 +41,7 @@ function App() {
   const passTerm = () => {
     const fetchData = async () => {
       if (!term) {
-        return console.log("No search term provided");
+        return setErrorClass(true);
       }
       try {
         const options = {
@@ -53,8 +54,9 @@ function App() {
         const response = await fetch(url, options);
         const data = await response.json();
         setMovies(data.results);
+        setErrorClass(false);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("An error occured:", error);
       }
     };
     fetchData();
@@ -105,6 +107,7 @@ function App() {
                     value={term}
                     type="search"
                     onChange={(e) => setTerm(e.target.value)}
+                    isInvalid={errorClass}
                   />
                   <Button
                     variant="primary"
@@ -115,6 +118,7 @@ function App() {
                     <span className="icon-search"></span>
                   </Button>
                 </InputGroup>
+                <p className="invalid-feedback">Please enter a word or title to search.</p>
               </div>
 
               {movies.length > 0 ? (

@@ -28,9 +28,7 @@ a,
     border-color: var(--link);
     color: var(--white);
 
-    [class*="icon"] { 
-      @extend %white-filter; 
-    }
+    [class*="icon"] { @extend %white-filter; }
   }
 }
 
@@ -48,6 +46,11 @@ a,
     border: $border-dark;
     border-left: none;
     border-radius: $base-spacing;
+  }
+
+  &:has(.is-invalid) + .invalid-feedback {
+    display: block;
+    font-size: 1.4rem;
   }
 }
 
