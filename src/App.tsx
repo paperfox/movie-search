@@ -118,7 +118,9 @@ function App() {
                     <span className="icon-search"></span>
                   </Button>
                 </InputGroup>
-                <p className="invalid-feedback">Please enter a word or title to search.</p>
+                <p className="invalid-feedback">
+                  Please enter a word or title to search.
+                </p>
               </div>
 
               {movies.length > 0 ? (
@@ -137,37 +139,23 @@ function App() {
         {movies.length === 0 ? (
           <>
             <div className="splash-image">
-              <img
-                src={largeReel}
-                className="large-reel"
-                alt="A large reel of film at the front of the movie projector"
-              />
-              <img
-                src={smallReel}
-                className="small-reel"
-                alt="A small reel of film at the back of the movie projector"
-              />
+              {/* The one alt tag covers what a screenreader user would need to know about all of these images
+              listing them individually was overwhelming */}
+              <img src={largeReel} className="large-reel" alt="" />
+              <img src={smallReel} className="small-reel" alt="" />
               <img
                 src={camera}
                 className="camera"
-                alt="A vintage movie projector"
+                alt="A vintage movie projector shining light from the lense"
               />
-              <img
-                src={light}
-                className="light"
-                alt="Light shining out of the projector"
-              />
-              <img
-                src={stand}
-                className="stand"
-                alt="A stand for a projector"
-              />
+              <img src={light} className="light" alt="" />
+              <img src={stand} className="stand" alt="" />
             </div>
-            <div className="light-extension"></div>
-            <div className="shape-left-top"></div>
-            <div className="shape-left-bottom"></div>
-            <div className="shape-right-top"></div>
-            <div className="shape-right-bottom"></div>
+            <div className="light-extension" />
+            <div className="shape-left-top" />
+            <div className="shape-left-bottom" />
+            <div className="shape-right-top" />
+            <div className="shape-right-bottom" />
           </>
         ) : (
           ""
