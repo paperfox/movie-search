@@ -10,14 +10,14 @@ Created using Vite with React and TypeScript.
 - npm (version 9.0.0 recommended)
 - An API Key from TMDB. [Grab one here](https://developer.themoviedb.org/docs/getting-started)
 
-### Installation
+### Getting Running
+
+After cloning, all commands are run from the parent directory, `cd movie-search` by default.
 
 1. **Clone the repository:**
 
 ```bash
 git clone https://github.com/paperfox/movie-search.git
-cd movie-search
-
 ```
 
 2. **Install Dependencies**
@@ -28,7 +28,7 @@ $ npm install
 
 3. **Add Key to .env**
 
-Add the `API Read Access Token` from TMDB as `VITE_KEY` to your `.env` file for simplest set up
+Add the `API Read Access Token` from TMDB as `VITE_KEY` to your `.env` file for simplest set up.
 
 ## Commands
 
