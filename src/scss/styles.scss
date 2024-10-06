@@ -27,6 +27,10 @@ a,
     background-color: var(--link);
     border-color: var(--link);
     color: var(--white);
+
+    [class*="icon"] { 
+      @extend %white-filter; 
+    }
   }
 }
 
