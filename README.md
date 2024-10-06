@@ -6,7 +6,7 @@ Created using Vite with React and TypeScript.
 
 ### Prerequisites
 
-- Node.js (version v20.0.0 or higher recommended)
+- Node.js (version v20.0.0 or higher)
 - npm (version 9.0.0 or higher)
 - An API Key from TMDB. [Grab one here](https://developer.themoviedb.org/docs/getting-started)
 
